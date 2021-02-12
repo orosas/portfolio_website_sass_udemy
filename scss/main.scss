@@ -8,7 +8,10 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  // Nota: Al colocar box-sizing: border-box como siempre
+  //       No se logra el efecto de hover en la sección
+  //       home-c / process
+  // box-sizing: border-box;
 }
 
 body {
@@ -120,7 +123,12 @@ img {
 
   }
 
-  &-inner {}
+  // Header inner
+  &-inner {
+    background: $bg-image no-repeat 20% 30% / cover;
+    height: 5.5rem;
+    border-bottom: 3px solid $main-color;
+  }
 }
 
 // ****************** 
@@ -174,6 +182,161 @@ img {
         &:nth-child(even) {
           background: $medium-color;
         }
+      }
+    }
+  }
+
+  // Home Section C
+  &-c {
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+
+      // process-icon
+      &-icon {
+        position: relative;
+        border-radius: 50%;
+        background: $dark-color;
+        color: set-text-color($dark-color);
+        padding: 2rem;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        transition: all 1s;
+
+        &:hover {
+          background: $main-color;
+          width: 90px;
+          height: 90px;
+          height: 90px;
+          transform: scale(1.1);
+
+          .process-step {
+            background: $dark-color;
+            color: set-text-color($dark-color);
+            transform: scale(0.7);
+          }
+        }
+      }
+
+      // process-step
+      &-step {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 28px;
+        background: $main-color;
+        color: set-text-color($main-color);
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        line-height: 15px;
+        padding: 1rem;
+        transition: all 1s;
+      }
+
+    }
+  }
+}
+
+// **********************
+// Inicia About Sections
+#about {
+  &-a {
+    .about-info {
+      display: grid;
+      grid-template-areas:
+        'bioimage bio bio'
+        'aw1 aw2 aw3'
+      ;
+      gap: 1.2rem;
+    }
+
+    // Grid Areas
+    .bio-image {
+      grid-area: bioimage;
+    }
+
+    .bio {
+      grid-area: bio;
+      border-bottom: 3px $main-color solid;
+      border-left: 2px $main-color solid;
+      border-radius: 0 0 0 5px;
+    }
+
+    .award-1 {
+      grid-area: aw1;
+    }
+
+    .award-2 {
+      grid-area: aw2;
+    }
+
+    .award-3 {
+      grid-area: aw3;
+    }
+
+    .award-1 .fas,
+    .award-2 .fas,
+    .award-3 .fas {
+      color: $main-color;
+      margin: 1rem;
+      transition: all 0.75s;
+
+      &:hover {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .award-1,
+    .award-2,
+    .award-3 {
+      transform: scale(0.9);
+      transition: all 1s;
+
+      &:hover {
+        transform: scale(1);
+      }
+
+    }
+
+
+  }
+}
+
+
+
+
+// Termina About Sections
+// **********************
+
+// Footer
+#main-footer {
+  background: $dark-color;
+  color: #fff;
+  height: 5rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: center;
+
+    .social .fab {
+      margin-right: 1rem;
+      border: 2px #fff solid;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      padding: 0.5rem;
+
+      &:hover {
+        background: $main-color;
       }
     }
   }
