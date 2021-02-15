@@ -1,6 +1,8 @@
 // Import partials
 @import 'config';
 @import 'utilities';
+// Scss del archivo work.html
+@import 'item_grid';
 
 // ****************** 
 // Inicia General Styles
@@ -124,6 +126,7 @@ img {
   }
 
   // Header inner
+  // En página about.html
   &-inner {
     background: $bg-image no-repeat 20% 30% / cover;
     height: 5.5rem;
@@ -366,7 +369,75 @@ img {
   }
 }
 
+// **********************
+// contact.html
 
+#contact {
+  &-a {
+    .text-fields {
+      display: grid;
+      grid-template-areas:
+        'name email'
+        'subject phone'
+        'message message'
+      ;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      // Grid Areas
+
+      .name-input {
+        grid-area: name;
+      }
+
+      .subject-input {
+        grid-area: subject;
+      }
+
+      .email-input {
+        grid-area: email;
+      }
+
+      .phone-input {
+        grid-area: phone;
+      }
+
+      .message-input {
+        grid-area: message;
+        height: 100px;
+      }
+
+      .text-input {
+        padding: 0.5rem 1rem;
+      }
+
+    }
+
+    // Botón de formulario
+    button[type='submit'] {
+      width: 40%
+    }
+  }
+
+  &-b {
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  &-c {
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+    }
+  }
+}
 
 
 // Termina About Sections
@@ -400,3 +471,8 @@ img {
     }
   }
 }
+
+
+// *****************
+// Media queries
+@import 'media';
